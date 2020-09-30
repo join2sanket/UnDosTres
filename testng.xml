@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="UnDosTres" parallel="false" group-by-instances="true">
+    <listeners>
+        <listener class-name="org.UnDosTres.listeners.Listeners"></listener>
+    </listeners>
+    <test name="UnDosTres HomePage">
+        <classes >
+            <class name="org.UnDosTres.test.HomePageTest"/>
+            <class name="org.UnDosTres.test.PaymentDetailPageTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="191.237" tests="6" errors="0" skipped="0" failures="2">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\Sanket\IdeaProjects\UnDosTres\target\test-classes;C:\Users\Sanket\IdeaProjects\UnDosTres\target\classes;C:\Users\Sanket\.m2\repository\io\github\bonigarcia\webdrivermanager\3.8.1\webdrivermanager-3.8.1.jar;C:\Users\Sanket\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\Sanket\.m2\repository\commons-io\commons-io\2.6\commons-io-2.6.jar;C:\Users\Sanket\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\Sanket\.m2\repository\org\apache\commons\commons-lang3\3.8.1\commons-lang3-3.8.1.jar;C:\Users\Sanket\.m2\repository\org\apache\httpcomponents\httpclient\4.5.6\httpclient-4.5.6.jar;C:\Users\Sanket\.m2\repository\org\apache\httpcomponents\httpcore\4.4.10\httpcore-4.4.10.jar;C:\Users\Sanket\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Sanket\.m2\repository\org\rauschig\jarchivelib\1.0.0\jarchivelib-1.0.0.jar;C:\Users\Sanket\.m2\repository\org\apache\commons\commons-compress\1.18\commons-compress-1.18.jar;C:\Users\Sanket\.m2\repository\org\jsoup\jsoup\1.11.3\jsoup-1.11.3.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-java\3.141.59\selenium-java-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-api\3.141.59\selenium-api-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\3.141.59\selenium-chrome-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\3.141.59\selenium-edge-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\3.141.59\selenium-firefox-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\3.141.59\selenium-ie-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-opera-driver\3.141.59\selenium-opera-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\3.141.59\selenium-remote-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\3.141.59\selenium-safari-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-support\3.141.59\selenium-support-3.141.59.jar;C:\Users\Sanket\.m2\repository\net\bytebuddy\byte-buddy\1.8.15\byte-buddy-1.8.15.jar;C:\Users\Sanket\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\Sanket\.m2\repository\com\google\guava\guava\25.0-jre\guava-25.0-jre.jar;C:\Users\Sanket\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\Sanket\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\Sanket\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\Sanket\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\Sanket\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\Sanket\.m2\repository\com\squareup\okhttp3\okhttp\3.11.0\okhttp-3.11.0.jar;C:\Users\Sanket\.m2\repository\com\squareup\okio\okio\1.14.0\okio-1.14.0.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi\3.17\poi-3.17.jar;C:\Users\Sanket\.m2\repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar;C:\Users\Sanket\.m2\repository\org\apache\commons\commons-collections4\4.1\commons-collections4-4.1.jar;C:\Users\Sanket\.m2\repository\org\apache\xmlbeans\xmlbeans\2.6.0\xmlbeans-2.6.0.jar;C:\Users\Sanket\.m2\repository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi-ooxml-schemas\3.17\poi-ooxml-schemas-3.17.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi-ooxml\3.17\poi-ooxml-3.17.jar;C:\Users\Sanket\.m2\repository\com\github\virtuald\curvesapi\1.04\curvesapi-1.04.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi-excelant\3.17\poi-excelant-3.17.jar;C:\Users\Sanket\.m2\repository\org\apache\ant\ant\1.8.2\ant-1.8.2.jar;C:\Users\Sanket\.m2\repository\org\apache\ant\ant-launcher\1.8.2\ant-launcher-1.8.2.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi-scratchpad\3.17\poi-scratchpad-3.17.jar;C:\Users\Sanket\.m2\repository\org\testng\testng\7.1.0\testng-7.1.0.jar;C:\Users\Sanket\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;C:\Users\Sanket\.m2\repository\com\google\inject\guice\4.1.0\guice-4.1.0-no_aop.jar;C:\Users\Sanket\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\Sanket\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\Sanket\.m2\repository\org\yaml\snakeyaml\1.21\snakeyaml-1.21.jar;C:\Users\Sanket\.m2\repository\com\aventstack\extentreports\5.0.3\extentreports-5.0.3.jar;C:\Users\Sanket\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar;C:\Users\Sanket\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar;C:\Users\Sanket\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar;C:\Users\Sanket\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar;C:\Users\Sanket\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.3\log4j-api-2.13.3.jar;C:\Users\Sanket\.m2\repository\org\apache\logging\log4j\log4j-core\2.13.3\log4j-core-2.13.3.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_261\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\Sanket\AppData\Local\Temp\surefire5654033643690924958\surefirebooter5401367426783422250.jar C:\Users\Sanket\AppData\Local\Temp\surefire5654033643690924958 2020-09-30T14-08-57_885-jvmRun1 surefire1070470226546645927tmp surefire_03486297185986432504tmp"/>
+    <property name="surefire.test.class.path" value="C:\Users\Sanket\IdeaProjects\UnDosTres\target\test-classes;C:\Users\Sanket\IdeaProjects\UnDosTres\target\classes;C:\Users\Sanket\.m2\repository\io\github\bonigarcia\webdrivermanager\3.8.1\webdrivermanager-3.8.1.jar;C:\Users\Sanket\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\Sanket\.m2\repository\commons-io\commons-io\2.6\commons-io-2.6.jar;C:\Users\Sanket\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\Sanket\.m2\repository\org\apache\commons\commons-lang3\3.8.1\commons-lang3-3.8.1.jar;C:\Users\Sanket\.m2\repository\org\apache\httpcomponents\httpclient\4.5.6\httpclient-4.5.6.jar;C:\Users\Sanket\.m2\repository\org\apache\httpcomponents\httpcore\4.4.10\httpcore-4.4.10.jar;C:\Users\Sanket\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Sanket\.m2\repository\org\rauschig\jarchivelib\1.0.0\jarchivelib-1.0.0.jar;C:\Users\Sanket\.m2\repository\org\apache\commons\commons-compress\1.18\commons-compress-1.18.jar;C:\Users\Sanket\.m2\repository\org\jsoup\jsoup\1.11.3\jsoup-1.11.3.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-java\3.141.59\selenium-java-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-api\3.141.59\selenium-api-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\3.141.59\selenium-chrome-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\3.141.59\selenium-edge-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\3.141.59\selenium-firefox-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\3.141.59\selenium-ie-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-opera-driver\3.141.59\selenium-opera-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\3.141.59\selenium-remote-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\3.141.59\selenium-safari-driver-3.141.59.jar;C:\Users\Sanket\.m2\repository\org\seleniumhq\selenium\selenium-support\3.141.59\selenium-support-3.141.59.jar;C:\Users\Sanket\.m2\repository\net\bytebuddy\byte-buddy\1.8.15\byte-buddy-1.8.15.jar;C:\Users\Sanket\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\Sanket\.m2\repository\com\google\guava\guava\25.0-jre\guava-25.0-jre.jar;C:\Users\Sanket\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\Sanket\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\Sanket\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\Sanket\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\Sanket\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\Sanket\.m2\repository\com\squareup\okhttp3\okhttp\3.11.0\okhttp-3.11.0.jar;C:\Users\Sanket\.m2\repository\com\squareup\okio\okio\1.14.0\okio-1.14.0.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi\3.17\poi-3.17.jar;C:\Users\Sanket\.m2\repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar;C:\Users\Sanket\.m2\repository\org\apache\commons\commons-collections4\4.1\commons-collections4-4.1.jar;C:\Users\Sanket\.m2\repository\org\apache\xmlbeans\xmlbeans\2.6.0\xmlbeans-2.6.0.jar;C:\Users\Sanket\.m2\repository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi-ooxml-schemas\3.17\poi-ooxml-schemas-3.17.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi-ooxml\3.17\poi-ooxml-3.17.jar;C:\Users\Sanket\.m2\repository\com\github\virtuald\curvesapi\1.04\curvesapi-1.04.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi-excelant\3.17\poi-excelant-3.17.jar;C:\Users\Sanket\.m2\repository\org\apache\ant\ant\1.8.2\ant-1.8.2.jar;C:\Users\Sanket\.m2\repository\org\apache\ant\ant-launcher\1.8.2\ant-launcher-1.8.2.jar;C:\Users\Sanket\.m2\repository\org\apache\poi\poi-scratchpad\3.17\poi-scratchpad-3.17.jar;C:\Users\Sanket\.m2\repository\org\testng\testng\7.1.0\testng-7.1.0.jar;C:\Users\Sanket\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;C:\Users\Sanket\.m2\repository\com\google\inject\guice\4.1.0\guice-4.1.0-no_aop.jar;C:\Users\Sanket\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\Sanket\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\Sanket\.m2\repository\org\yaml\snakeyaml\1.21\snakeyaml-1.21.jar;C:\Users\Sanket\.m2\repository\com\aventstack\extentreports\5.0.3\extentreports-5.0.3.jar;C:\Users\Sanket\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar;C:\Users\Sanket\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar;C:\Users\Sanket\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar;C:\Users\Sanket\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar;C:\Users\Sanket\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.3\log4j-api-2.13.3.jar;C:\Users\Sanket\.m2\repository\org\apache\logging\log4j\log4j-core\2.13.3\log4j-core-2.13.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Sanket"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_261\jre"/>
+    <property name="basedir" value="C:\Users\Sanket\IdeaProjects\UnDosTres"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\Sanket\AppData\Local\Temp\surefire5654033643690924958\surefirebooter5401367426783422250.jar"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_261\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_261\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_261-b12"/>
+    <property name="user.name" value="Sanket"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_261\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Sanket\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Sanket\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_261"/>
+    <property name="user.dir" value="C:\Users\Sanket\IdeaProjects\UnDosTres"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_261\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\nodejs\;C:\Program Files\Maven\apache-maven-3.6.3\bin;C:\Program Files\Java\jdk1.8.0_261\bin;C:\Users\Sanket\AppData\Local\Microsoft\WindowsApps;C:\Users\Sanket\AppData\Roaming\npm;C:\Program Files (x86)\Sophos\Sophos SSL VPN Client\bin;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.261-b12"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="validateHomePageIsGettingOpen" classname="org.UnDosTres.test.HomePageTest" time="2.063"/>
+  <testcase name="validateHomePageIsGettingOpen" classname="org.UnDosTres.test.HomePageTest" time="0.126"/>
+  <testcase name="validateRecargaCelularIsShown" classname="org.UnDosTres.test.HomePageTest" time="2.23"/>
+  <testcase name="validateRecargaCelularIsShown" classname="org.UnDosTres.test.HomePageTest" time="0.203"/>
+  <testcase name="validatePaymentHasBeenCompletedThroughCard" classname="org.UnDosTres.test.PaymentDetailPageTest" time="24.305">
+    <failure message="Unable to submit recharge as Pop Up Is not getting disappear expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: Unable to submit recharge as Pop Up Is not getting disappear expected [true] but found [false]
+	at org.UnDosTres.test.PaymentDetailPageTest.validatePaymentHasBeenCompletedThroughCard(PaymentDetailPageTest.java:75)
+</failure>
+    <system-out><![CDATA[14:10:03.509 [main] INFO  UnDosTres - Currently executing PaymentDetail Test cases, Initializing browser Edge
+14:10:09.142 [main] INFO  UnDosTres - Browser->edge has been opened successfully
+14:10:14.621 [main] INFO  UnDosTres - Url Has been entered-> http://prueba.undostres.com.mx
+14:10:20.580 [main] INFO  UnDosTres - Click on the operator field to open the operator list
+14:10:21.230 [main] INFO  UnDosTres - Oprator list has been found, number of operator in list are->14
+14:10:21.769 [main] INFO  UnDosTres - Operator selected as Telcel successfully
+14:10:22.547 [main] INFO  UnDosTres - Element with 5523261151 entered successfully
+14:10:22.547 [main] INFO  UnDosTres - Mobile Number->5523261151 has been entered successfully
+14:10:22.882 [main] INFO  UnDosTres - Getting recharge type web element Paquete Amigo
+14:10:22.905 [main] INFO  UnDosTres - Recharge type webelement has been found successfully
+14:10:23.199 [main] INFO  UnDosTres - Click over Recharge type->Paquete Amigo
+14:10:23.771 [main] INFO  UnDosTres - Clicked on the amount 80
+14:10:23.771 [main] INFO  UnDosTres - Going to click on submit button to move towards payment page
+14:10:24.712 [main] INFO  UnDosTres - Clicked on perform payment button
+14:10:39.722 [main] INFO  UnDosTres - Element with Test entered successfully
+14:10:40.407 [main] INFO  UnDosTres - Element with 4111111111111111 entered successfully
+14:10:40.932 [main] INFO  UnDosTres - Element with 11 entered successfully
+14:10:41.335 [main] INFO  UnDosTres - Element with 2025 entered successfully
+14:10:41.806 [main] INFO  UnDosTres - Element with 111 entered successfully
+14:10:42.268 [main] INFO  UnDosTres - Element with test@test.com entered successfully
+14:10:42.910 [main] INFO  UnDosTres - EdgeBrowser Start Execution of test case ->validatePaymentHasBeenCompletedThroughCard
+14:10:43.583 [main] INFO  UnDosTres - Element with automationexcersise@test.com entered successfully
+14:10:44.020 [main] INFO  UnDosTres - Element with 123456 entered successfully
+Pop Up Is Still Visible
+14:11:06.611 [main] ERROR UnDosTres - Pop Up Is Still Visbile Unable to check if recharge is successfull 
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to no longer be visible: By.cssSelector: img.fbloginButton (tried for 20 second(s) with 2000 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-S4EEHFLF', ip: '192.168.1.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: driver.version: unknown
+	at org.UnDosTres.pages.PaymentDetailPage.fillPopUpAndClickSubmit(PaymentDetailPage.java:156) ~[classes/:?]
+	at org.UnDosTres.test.PaymentDetailPageTest.validatePaymentHasBeenCompletedThroughCard(PaymentDetailPageTest.java:75) ~[test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_261]
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128) ~[testng-7.1.0.jar:?]
+	at java.util.ArrayList.forEach(ArrayList.java:1259) [?:1.8.0_261]
+	at org.testng.TestRunner.privateRun(TestRunner.java:766) [testng-7.1.0.jar:?]
+	at org.testng.TestRunner.run(TestRunner.java:587) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96) [testng-7.1.0.jar:?]
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187) [testng-7.1.0.jar:?]
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109) [testng-7.1.0.jar:?]
+	at org.testng.TestNG.runSuites(TestNG.java:1039) [testng-7.1.0.jar:?]
+	at org.testng.TestNG.run(TestNG.java:1007) [testng-7.1.0.jar:?]
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283) [surefire-testng-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75) [surefire-testng-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120) [surefire-testng-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) [surefire-booter-2.22.1.jar:2.22.1]
+14:11:06.645 [main] INFO  UnDosTres - Going to take screnshot for test case->validatePaymentHasBeenCompletedThroughCard
+14:11:06.645 [main] INFO  UnDosTres - Screenshot has been taken
+14:11:07.213 [main] INFO  UnDosTres - Screenshot has been stored in screenshot folder
+]]></system-out>
+    <system-err><![CDATA[Starting MSEdgeDriver 85.0.564.51 (626274a16bb350129a74ead7a3d8d53a5ad39364) on port 34191
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping MSEdgeDriver safe.
+MSEdgeDriver was started successfully.
+Sep 30, 2020 2:10:06 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+  <testcase name="validatePaymentHasBeenCompletedThroughCard" classname="org.UnDosTres.test.PaymentDetailPageTest" time="25.397">
+    <failure message="Unable to submit recharge as Pop Up Is not getting disappear expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: Unable to submit recharge as Pop Up Is not getting disappear expected [true] but found [false]
+	at org.UnDosTres.test.PaymentDetailPageTest.validatePaymentHasBeenCompletedThroughCard(PaymentDetailPageTest.java:75)
+</failure>
+    <system-out><![CDATA[14:11:08.466 [main] INFO  UnDosTres - Currently executing PaymentDetail Test cases, Initializing browser Chrome
+14:11:13.935 [main] INFO  UnDosTres - Browser->chrome has been opened successfully
+14:11:21.962 [main] INFO  UnDosTres - Url Has been entered-> http://prueba.undostres.com.mx
+14:11:24.572 [main] INFO  UnDosTres - Click on the operator field to open the operator list
+14:11:25.063 [main] INFO  UnDosTres - Oprator list has been found, number of operator in list are->14
+14:11:25.757 [main] INFO  UnDosTres - Operator selected as Telcel successfully
+14:11:26.251 [main] INFO  UnDosTres - Element with 5523261151 entered successfully
+14:11:26.251 [main] INFO  UnDosTres - Mobile Number->5523261151 has been entered successfully
+14:11:26.568 [main] INFO  UnDosTres - Getting recharge type web element Recarga Saldo
+14:11:26.592 [main] INFO  UnDosTres - Recharge type webelement has been found successfully
+14:11:26.862 [main] INFO  UnDosTres - Click over Recharge type->Recarga Saldo
+14:11:27.257 [main] INFO  UnDosTres - Clicked on the amount 10
+14:11:27.258 [main] INFO  UnDosTres - Going to click on submit button to move towards payment page
+14:11:28.049 [main] INFO  UnDosTres - Clicked on perform payment button
+14:11:41.079 [main] INFO  UnDosTres - Element with Test entered successfully
+14:11:41.588 [main] INFO  UnDosTres - Element with 4111111111111111 entered successfully
+14:11:41.988 [main] INFO  UnDosTres - Element with 11 entered successfully
+14:11:42.557 [main] INFO  UnDosTres - Element with 2025 entered successfully
+14:11:43.042 [main] INFO  UnDosTres - Element with 111 entered successfully
+14:11:43.461 [main] INFO  UnDosTres - Element with test@test.com entered successfully
+14:11:44.126 [main] INFO  UnDosTres - ChromeBrowser Start Execution of test case ->validatePaymentHasBeenCompletedThroughCard
+14:11:45.537 [main] INFO  UnDosTres - Element with automationexcersise@test.com entered successfully
+14:11:46.123 [main] INFO  UnDosTres - Element with 123456 entered successfully
+Pop Up Is Still Visible
+14:12:08.971 [main] ERROR UnDosTres - Pop Up Is Still Visbile Unable to check if recharge is successfull 
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to no longer be visible: By.cssSelector: img.fbloginButton (tried for 20 second(s) with 2000 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-S4EEHFLF', ip: '192.168.1.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: driver.version: unknown
+	at org.UnDosTres.pages.PaymentDetailPage.fillPopUpAndClickSubmit(PaymentDetailPage.java:156) ~[classes/:?]
+	at org.UnDosTres.test.PaymentDetailPageTest.validatePaymentHasBeenCompletedThroughCard(PaymentDetailPageTest.java:75) ~[test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_261]
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146) ~[testng-7.1.0.jar:?]
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128) ~[testng-7.1.0.jar:?]
+	at java.util.ArrayList.forEach(ArrayList.java:1259) [?:1.8.0_261]
+	at org.testng.TestRunner.privateRun(TestRunner.java:766) [testng-7.1.0.jar:?]
+	at org.testng.TestRunner.run(TestRunner.java:587) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53) [testng-7.1.0.jar:?]
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96) [testng-7.1.0.jar:?]
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187) [testng-7.1.0.jar:?]
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109) [testng-7.1.0.jar:?]
+	at org.testng.TestNG.runSuites(TestNG.java:1039) [testng-7.1.0.jar:?]
+	at org.testng.TestNG.run(TestNG.java:1007) [testng-7.1.0.jar:?]
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283) [surefire-testng-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75) [surefire-testng-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120) [surefire-testng-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) [surefire-booter-2.22.1.jar:2.22.1]
+14:12:08.977 [main] INFO  UnDosTres - Going to take screnshot for test case->validatePaymentHasBeenCompletedThroughCard
+14:12:08.977 [main] INFO  UnDosTres - Screenshot has been taken
+14:12:09.500 [main] INFO  UnDosTres - Screenshot has been stored in screenshot folder
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 85.0.4183.87 (cd6713ebf92fa1cacc0f1a598df280093af0c5d7-refs/branch-heads/4183@{#1689}) on port 6492
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Sep 30, 2020 2:11:11 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+</testsuite>

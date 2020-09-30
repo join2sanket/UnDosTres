@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [UnDosTres]">
+  <listeners>
+    <listener class-name="org.UnDosTres.listeners.Listeners"/>
+  </listeners>
+  <test thread-count="5" verbose="0" name="UnDosTres HomePage(failed)">
+    <classes>
+      <class name="org.UnDosTres.test.PaymentDetailPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="validatePaymentHasBeenCompletedThroughCard"/>
+          <include name="validatePaymentHasBeenCompletedThroughCard"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- org.UnDosTres.test.PaymentDetailPageTest -->
+    </classes>
+  </test> <!-- UnDosTres HomePage(failed) -->
+</suite> <!-- Failed suite [UnDosTres] -->
