@@ -6,15 +6,14 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 import java.time.Duration;
 
 
 public class PaymentDetailPage
 {
     public WebDriver driver;
+
+    public PerformAction action;
 
     private static Logger log= LogManager.getLogger(PaymentDetailPage.class.getName());
 
@@ -49,6 +48,7 @@ public class PaymentDetailPage
     public PaymentDetailPage(WebDriver driver)
     {
         this.driver=driver;
+        action=new PerformAction(driver);
     }
 
     public String getSummaryMessage()
@@ -71,43 +71,43 @@ public class PaymentDetailPage
     public boolean selectOptionTarjeta() {
 
 
-        return PerformAction.click(driver.findElement(CreditCard),driver);
+        return action.click(driver.findElement(CreditCard));
     }
 
 
     public boolean enterCardHolderName(String name)
     {
-        return PerformAction.setText(driver.findElement(CardHolderName),name,driver);
+        return action.setText(driver.findElement(CardHolderName),name);
     }
 
     public boolean enterCardNumber(String number)
     {
-        return PerformAction.setText(driver.findElement(CardNumber),number,driver);
+        return action.setText(driver.findElement(CardNumber),number);
     }
 
     public boolean enterExpiryMonth(String month)
     {
-        return PerformAction.setText(driver.findElement(ExpiryMonth),month,driver);
+        return action.setText(driver.findElement(ExpiryMonth),month);
     }
 
     public boolean enterExpiryYear(String year)
     {
-        return PerformAction.setText(driver.findElement(ExpiryYear),year,driver);
+        return action.setText(driver.findElement(ExpiryYear),year);
     }
 
     public boolean enterCCVNumber(String ccv)
     {
-        return PerformAction.setText(driver.findElement(CcvNumber),ccv,driver);
+        return action.setText(driver.findElement(CcvNumber),ccv);
     }
 
     public boolean clickSubmit()
     {
-        return PerformAction.click(driver.findElement(PagarConTarjeta),driver);
+        return action.click(driver.findElement(PagarConTarjeta));
     }
 
     public boolean enterEmailId(String email)
     {
-        return PerformAction.setText(driver.findElement(EmailId),email,driver);
+        return action.setText(driver.findElement(EmailId),email);
     }
 
     public void fillCardDetails(String name,String numb, String mon,String year,String ccv,String email)
@@ -127,9 +127,9 @@ public class PaymentDetailPage
     {
         boolean status=false;
 
-        PerformAction.setText(driver.findElement(PopUpEmailId),emailId,driver);
+        action.setText(driver.findElement(PopUpEmailId),emailId);
 
-        PerformAction.setText(driver.findElement(PopUpPassword),pswrd,driver);
+        action.setText(driver.findElement(PopUpPassword),pswrd);
 
 
         //---switching to iframe-----//
@@ -143,12 +143,12 @@ public class PaymentDetailPage
             driver.switchTo().frame(i);
             if(driver.findElements(PopUpIamNotRobotCheckBox).size()!=0)
             {
-                PerformAction.click(driver.findElement(PopUpIamNotRobotCheckBox),driver);
+                action.click(driver.findElement(PopUpIamNotRobotCheckBox));
                 driver.switchTo().defaultContent();
                 break;
             }
         }
-            PerformAction.click(driver.findElement(PopUpSubmitButton),driver);
+            action.click(driver.findElement(PopUpSubmitButton));
 
             log.error("Waiting for invisibility of the pop up and naviagtion to payment done page");
 

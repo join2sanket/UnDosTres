@@ -1,21 +1,22 @@
 package org.UnDosTres.pages;
 
-import org.UnDosTres.testBase.TestBase;
 import org.UnDosTres.util.PerformAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.poi.sl.usermodel.SlideShowFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import sun.misc.Perf;
 
 import java.util.List;
 
 public class HomePage
 {
     public WebDriver driver;
+    
+    public PerformAction action;
 
     private By Operator= By.xpath("//div[@to-do=\"mobile\"]/div/div[@class=\"form\"] //input[@name=\"operator\"]");
 
@@ -35,6 +36,7 @@ public class HomePage
     public HomePage(WebDriver driver)
     {
         this.driver=driver;
+        action=new PerformAction(driver);
     }
 
 
@@ -44,17 +46,18 @@ public class HomePage
 
         boolean status=false;
         try {
-            PerformAction.click(driver.findElement(Operator),driver);
+            action.click(driver.findElement(Operator));
             log.info("Click on the operator field to open the operator list");
 
             List<WebElement> list = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(OperatorList));
             log.info("Oprator list has been found, number of operator in list are->"+list.size());
 
             for (WebElement e : list)
-            {
-                if (PerformAction.getText(e,driver).equalsIgnoreCase(operator))
+            {   
+                
+                if (action.getText(e).equalsIgnoreCase(operator))
                 {
-                    PerformAction.click(e,driver);
+                    action.click(e);
                     log.info("Operator selected as "+operator+" successfully");
                     status = true;
                     break;
@@ -73,7 +76,7 @@ public class HomePage
 
         try
         {
-            PerformAction.setText(driver.findElement(Mobile),mobileNumber,driver);
+            action.setText(driver.findElement(Mobile),mobileNumber);
             log.info("Mobile Number->"+mobileNumber+" has been entered successfully");
             status=true;
         }catch (Exception e)
@@ -89,18 +92,18 @@ public class HomePage
         boolean status=false;
         int i=0,k=0;
 
-            PerformAction.click(driver.findElement(Amount),driver);
+            action.click(driver.findElement(Amount));
             try {
                 log.info("Getting recharge type web element " + RechargeType);
                 WebElement rechargeType = driver.findElement(By.xpath("//div[@class=\"category-tab \"]/div[text()=\"" + RechargeType + "\"]"));
                 log.info("Recharge type webelement has been found successfully");
 
-                PerformAction.click(rechargeType,driver);
+                action.click(rechargeType);
                 log.info("Click over Recharge type->"+RechargeType);
 
                 List<WebElement> list = driver.findElements(By.xpath("//div[@class=\"category-tab \"]/div"));
 
-                while (!PerformAction.getText(list.get(i),driver).equalsIgnoreCase(RechargeType) && i < 3)
+                while (!action.getText(list.get(i)).equalsIgnoreCase(RechargeType) && i < 3)
                 {
                     i++;
                 }
@@ -124,14 +127,14 @@ public class HomePage
     public void clickProceedToPayment()
     {
             log.info("Going to click on submit button to move towards payment page");
-            PerformAction.click(driver.findElement(PerformPaymentButton),driver);
+            action.click(driver.findElement(PerformPaymentButton));
             log.info("Clicked on perform payment button");
     }
 
     public String getTextRecargaCelular()
     {
         log.info("Getting text Recarga Celular");
-        return PerformAction.getText(driver.findElement(TextRecargaCelular),driver);
+        return action.getText(driver.findElement(TextRecargaCelular));
     }
 
     public PaymentDetailPage enterRechargeDetailsAndClickSubmit(String operator, String mobileNo, String rechType, String amount)

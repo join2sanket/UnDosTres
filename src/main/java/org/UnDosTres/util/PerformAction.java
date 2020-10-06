@@ -18,13 +18,17 @@ import java.time.Duration;
 import java.util.List;
 
 
-public class PerformAction extends TestBase
+public class PerformAction
 {
+    public WebDriver driver;
+    private Logger log= LogManager.getLogger(PerformAction.class.getName());
 
-    private static final Logger log= LogManager.getLogger(PerformAction.class.getName());
+    public PerformAction(WebDriver driver)
+    {
+        this.driver=driver;
+    }
 
-
-    public static void moveToElementAndClick(WebElement element,WebDriver driver)
+    public void moveToElementAndClick(WebElement element)
     {
 
         try{
@@ -37,7 +41,7 @@ public class PerformAction extends TestBase
         }
     }
 
-    public static boolean setText(WebElement element,String data, WebDriver driver)
+    public  boolean setText(WebElement element,String data)
     {
         isPageReady(driver);
 
@@ -93,7 +97,7 @@ public class PerformAction extends TestBase
         return status;
     }
 
-    public static boolean click(WebElement element,WebDriver driver)
+    public boolean click(WebElement element)
     {
         isPageReady(driver);
 
@@ -116,7 +120,7 @@ public class PerformAction extends TestBase
         return status;
     }
 
-    public static boolean hover(WebElement element,WebDriver driver)
+    public  boolean hover(WebElement element)
     {
 
         isPageReady(driver);
@@ -138,7 +142,7 @@ public class PerformAction extends TestBase
         return status;
     }
 
-    public static String getText(WebElement element,WebDriver driver)
+    public  String getText(WebElement element)
     {
         isPageReady(driver);
         String text="Dummy";
@@ -175,7 +179,7 @@ public class PerformAction extends TestBase
         return text;
     }
 
-    public static boolean setAutoSuggestiveDropDown(By by, String optionToSelect,WebDriver driver)
+    public  boolean setAutoSuggestiveDropDown(By by, String optionToSelect)
     {
         isPageReady(driver);
         boolean status=false;
@@ -209,7 +213,7 @@ public class PerformAction extends TestBase
         return status;
     }
 
-    public static void isPageReady(WebDriver driver)
+    public  void isPageReady(WebDriver driver)
     {
         FluentWait<WebDriver> fluentWait=new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(2)).ignoring(Exception.class);
         try{
@@ -223,22 +227,4 @@ public class PerformAction extends TestBase
         }
     }
 
-
-    public static void recursiveDelete(File file)
-    {
-        //to end the recursive loop
-        if (!file.exists())
-            return;
-
-        //if directory, go inside and call recursively
-        if (file.isDirectory()) {
-            for (File f : file.listFiles()) {
-                //call recursively
-                recursiveDelete(f);
-            }
-        }
-        //call delete to delete files and empty directory
-        file.delete();
-        System.out.println("Deleted file/folder: "+file.getAbsolutePath());
-    }
 }

@@ -51,11 +51,11 @@ public class PaymentDetailPageTest extends TestBase
     public void beforeStartOfClass() throws IOException {
         String report = System.getProperty("user.dir")+"/automationReport";
         File file=new File(report);
-        PerformAction.recursiveDelete(file);
+        recursiveDelete(file);
 
         String logs=System.getProperty("user.dir")+"/logs";
         File log=new File(logs);
-        PerformAction.recursiveDelete(log);
+        recursiveDelete(log);
     }
 
 
@@ -74,22 +74,22 @@ public class PaymentDetailPageTest extends TestBase
         context.setAttribute("browser",browser);
     }
 
-//    @Test(priority = 1)
-//    public void validatePaymentPageUrlIsGettingOpen()
-//    {
-//        Assert.assertEquals(driver.getCurrentUrl(),"https://prueba.undostres.com.mx/payment.php",
-//                "Url Of Payment Page Is not Matched");
-//    }
-//
-//    @Test(dependsOnMethods ="validatePaymentPageUrlIsGettingOpen",priority = 2)
-//    public void validateSummaryOnPageIsCorrectlyDisplay()
-//    {
-//        String actual= paymentDetailPage.getSummaryMessage().trim();
-//        String expected="Recarga   Paquete Amigo  de Telcel  al número "+mobileNumber+"  de   $"+amount+" pesos";
-//       Assert.assertTrue(actual.equalsIgnoreCase(expected),"Page Is opened but text didn't matched");
-//    }
+    @Test
+    public void validatePaymentPageUrlIsGettingOpen()
+    {
+        Assert.assertEquals(driver.getCurrentUrl(),"https://prueba.undostres.com.mx/payment.php",
+                "Url Of Payment Page Is not Matched");
+    }
 
-    @Test(priority = 3)
+    @Test
+    public void validateSummaryOnPageIsCorrectlyDisplay()
+    {
+        String actual= paymentDetailPage.getSummaryMessage().trim();
+        String expected="Recarga   Paquete Amigo  de Telcel  al número "+mobileNumber+"  de   $"+amount+" pesos";
+       Assert.assertTrue(actual.equalsIgnoreCase(expected),"Page Is opened but text didn't matched");
+    }
+
+    @Test
     public void validatePaymentHasBeenCompletedThroughCard()
     {
         Assert.assertTrue(paymentDetailPage.fillPopUpAndClickSubmit(popUpEmail,popUpPassword),

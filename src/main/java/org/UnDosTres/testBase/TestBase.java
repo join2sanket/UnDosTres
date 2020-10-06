@@ -14,7 +14,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,7 +25,7 @@ public class TestBase
 {
 
     public static Properties propertyFile;
-    public static WebDriver driver;
+    public  WebDriver driver;
     private static Logger log= LogManager.getLogger("UnDosTres");
 
 
@@ -121,5 +120,22 @@ public class TestBase
             log.error("Unable to take screenshot error has been occured",e.fillInStackTrace());
         }
         return destination;
+    }
+    public  void recursiveDelete(File file)
+    {
+        //to end the recursive loop
+        if (!file.exists())
+            return;
+
+        //if directory, go inside and call recursively
+        if (file.isDirectory()) {
+            for (File f : file.listFiles()) {
+                //call recursively
+                recursiveDelete(f);
+            }
+        }
+        //call delete to delete files and empty directory
+        file.delete();
+        System.out.println("Deleted file/folder: "+file.getAbsolutePath());
     }
 }
