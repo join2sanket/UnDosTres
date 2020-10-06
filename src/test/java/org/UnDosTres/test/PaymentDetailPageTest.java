@@ -3,19 +3,24 @@ package org.UnDosTres.test;
 import org.UnDosTres.pages.HomePage;
 import org.UnDosTres.pages.PaymentDetailPage;
 import org.UnDosTres.testBase.TestBase;
-import org.UnDosTres.testData.DataFactory;
+import org.UnDosTres.dataFactory.DataFactory;
+import org.UnDosTres.util.PerformAction;
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Factory;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
+import java.io.File;
+import java.io.IOException;
 
 public class PaymentDetailPageTest extends TestBase
 {
-    private static final Logger log= LogManager.getLogger("UnDosTres");
+    public WebDriver driver;
+
+    private static final Logger log= LogManager.getLogger(PaymentDetailPageTest.class.getName());
 
     private String browser,operator,mobileNumber,rechargeType,amount,cardName,cardNumber,expMonth,expYear,
             ccv,email,popUpEmail,popUpPassword;
@@ -29,11 +34,11 @@ public class PaymentDetailPageTest extends TestBase
     {
         this.browser=browser;
         this.operator=operator;
-        this.mobileNumber=mobileNumber;;
+        this.mobileNumber=mobileNumber;
         this.rechargeType=rechargeType;
         this.amount=amount;
         this.cardName=cardName;
-        this.cardNumber=cardNumber;;
+        this.cardNumber=cardNumber;
         this.expMonth=expMonth;
         this.expYear=expYear;
         this.ccv=ccv;
@@ -42,42 +47,56 @@ public class PaymentDetailPageTest extends TestBase
         this.popUpPassword=popUpPassword;
     }
 
-    @BeforeMethod
+    @BeforeTest
+    public void beforeStartOfClass() throws IOException {
+        String report = System.getProperty("user.dir")+"/automationReport";
+        File file=new File(report);
+        PerformAction.recursiveDelete(file);
+
+        String logs=System.getProperty("user.dir")+"/logs";
+        File log=new File(logs);
+        PerformAction.recursiveDelete(log);
+    }
+
+
+    @BeforeClass
     public void setUp(ITestContext context)
     {
         log.info("Currently executing PaymentDetail Test cases, Initializing browser "+browser);
-        initialize_Browser_OpenUrl(browser,propertyFile.getProperty("url"));
+        driver=initialize_Browser_OpenUrl(browser);
 
-        paymentDetailPage=new HomePage().enterRechargeDetailsAndClickSubmit(operator,mobileNumber,rechargeType,amount);
+        driver.get(propertyFile.getProperty("url"));
+
+        paymentDetailPage=new HomePage(driver).enterRechargeDetailsAndClickSubmit(operator,mobileNumber,rechargeType,amount);
 
         paymentDetailPage.fillCardDetails(cardName,cardNumber,expMonth,expYear,ccv,email);
 
         context.setAttribute("browser",browser);
     }
 
-    @Test
-    public void validatePaymentPageUrlIsGettingOpen()
-    {
-        Assert.assertEquals(driver.getCurrentUrl(),"https://prueba.undostres.com.mx/payment.php",
-                "Url Of Payment Page Is not Matched");
-    }
+//    @Test(priority = 1)
+//    public void validatePaymentPageUrlIsGettingOpen()
+//    {
+//        Assert.assertEquals(driver.getCurrentUrl(),"https://prueba.undostres.com.mx/payment.php",
+//                "Url Of Payment Page Is not Matched");
+//    }
+//
+//    @Test(dependsOnMethods ="validatePaymentPageUrlIsGettingOpen",priority = 2)
+//    public void validateSummaryOnPageIsCorrectlyDisplay()
+//    {
+//        String actual= paymentDetailPage.getSummaryMessage().trim();
+//        String expected="Recarga   Paquete Amigo  de Telcel  al número "+mobileNumber+"  de   $"+amount+" pesos";
+//       Assert.assertTrue(actual.equalsIgnoreCase(expected),"Page Is opened but text didn't matched");
+//    }
 
-    @Test(dependsOnMethods ="validatePaymentPageUrlIsGettingOpen")
-    public void validateSummaryOnPageIsCorrectlyDisplay()
-    {
-        String actual= paymentDetailPage.getSummaryMessage().trim();
-        String expected="Recarga   Paquete Amigo  de Telcel  al número "+mobileNumber+"  de   $"+amount+" pesos";
-       Assert.assertTrue(actual.equalsIgnoreCase(expected),"Page Is opened but text didn't matched");
-    }
-
-    @Test(dependsOnMethods ="validatePaymentPageUrlIsGettingOpen")
+    @Test(priority = 3)
     public void validatePaymentHasBeenCompletedThroughCard()
     {
         Assert.assertTrue(paymentDetailPage.fillPopUpAndClickSubmit(popUpEmail,popUpPassword),
                 "Unable to submit recharge as Pop Up Is not getting disappear");
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown()
     {
         driver.quit();

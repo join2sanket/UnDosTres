@@ -49,7 +49,7 @@ public class TestBase
         }
     }
 
-    public void initialize_Browser_OpenUrl(String browser,String url) throws TimeoutException
+    public WebDriver initialize_Browser_OpenUrl(String browser) throws TimeoutException
     {
 
         String browserType=browser.toLowerCase().trim();
@@ -99,12 +99,12 @@ public class TestBase
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         log.info("Browser->"+browserType+" has been opened successfully");
-        driver.get(url);
-        log.info("Url Has been entered-> "+ url);
+
+        return driver;
 
     }
 
-    public String getScreenShot(String testName)
+    public String getScreenShot(String testName, WebDriver driver)
     {
         log.info("Going to take screenshot for test case->"+testName);
 

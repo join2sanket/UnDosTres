@@ -7,6 +7,7 @@ import org.UnDosTres.extentReport.ExtentReporter;
 import org.UnDosTres.testBase.TestBase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -45,7 +46,15 @@ public class Listeners extends TestBase implements ITestListener
         extentTest.get().fail(result.getThrowable());
         String concat=".";
         String testMethodName =result.getMethod().getMethodName();
-        String sc=concat+getScreenShot(testMethodName);
+        String sc= null;
+        try {
+            sc = concat+getScreenShot(testMethodName,(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").
+                    get(result.getInstance()));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
 
         try {
             extentTest.get().addScreenCaptureFromPath(sc, result.getMethod().getMethodName()

@@ -1,6 +1,6 @@
-package org.UnDosTres.testData;
+package org.UnDosTres.dataFactory;
 
-import lombok.Data;
+
 import org.UnDosTres.util.ExcelReader;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;

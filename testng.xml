@@ -5,8 +5,7 @@
     </listeners>
     <test name="UnDosTres HomePage">
         <classes >
-            <class name="org.UnDosTres.test.HomePageTest"/>
-            <class name="org.UnDosTres.test.PaymentDetailPageTest"/>
+            <class name="org.UnDosTres.test.PaymentDetailPageTest"></class>
         </classes>
     </test>
 </suite>

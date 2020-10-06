@@ -1,12 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 191.237 s <<< FAILURE! - in TestSuite
-validatePaymentHasBeenCompletedThroughCard(org.UnDosTres.test.PaymentDetailPageTest)  Time elapsed: 24.305 s  <<< FAILURE!
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 198.839 s <<< FAILURE! - in TestSuite
+validatePaymentHasBeenCompletedThroughCard(org.UnDosTres.test.PaymentDetailPageTest)  Time elapsed: 24.314 s  <<< FAILURE!
 java.lang.AssertionError: Unable to submit recharge as Pop Up Is not getting disappear expected [true] but found [false]
-	at org.UnDosTres.test.PaymentDetailPageTest.validatePaymentHasBeenCompletedThroughCard(PaymentDetailPageTest.java:75)
+	at org.UnDosTres.test.PaymentDetailPageTest.validatePaymentHasBeenCompletedThroughCard(PaymentDetailPageTest.java:95)
 
-validatePaymentHasBeenCompletedThroughCard(org.UnDosTres.test.PaymentDetailPageTest)  Time elapsed: 25.397 s  <<< FAILURE!
+validatePaymentHasBeenCompletedThroughCard(org.UnDosTres.test.PaymentDetailPageTest)  Time elapsed: 12.132 s  <<< FAILURE!
 java.lang.AssertionError: Unable to submit recharge as Pop Up Is not getting disappear expected [true] but found [false]
-	at org.UnDosTres.test.PaymentDetailPageTest.validatePaymentHasBeenCompletedThroughCard(PaymentDetailPageTest.java:75)
+	at org.UnDosTres.test.PaymentDetailPageTest.validatePaymentHasBeenCompletedThroughCard(PaymentDetailPageTest.java:95)
+
+validatePaymentHasBeenCompletedThroughCard(org.UnDosTres.test.PaymentDetailPageTest)  Time elapsed: 24.868 s  <<< FAILURE!
+java.lang.AssertionError: Unable to submit recharge as Pop Up Is not getting disappear expected [true] but found [false]
+	at org.UnDosTres.test.PaymentDetailPageTest.validatePaymentHasBeenCompletedThroughCard(PaymentDetailPageTest.java:95)
 

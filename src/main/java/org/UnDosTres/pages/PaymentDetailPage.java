@@ -1,19 +1,22 @@
 package org.UnDosTres.pages;
 
-import org.UnDosTres.testBase.TestBase;
 import org.UnDosTres.util.PerformAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import java.time.Duration;
 
 
-public class PaymentDetailPage extends TestBase
+public class PaymentDetailPage
 {
-    private static Logger log= LogManager.getLogger("UnDosTres");
+    public WebDriver driver;
+
+    private static Logger log= LogManager.getLogger(PaymentDetailPage.class.getName());
 
     private By SummaryMessage=By.cssSelector("span.summary-message");
 
@@ -43,17 +46,19 @@ public class PaymentDetailPage extends TestBase
 
     private By FacebookButtonOnPopUp=By.cssSelector("img.fbloginButton");
 
+    public PaymentDetailPage(WebDriver driver)
+    {
+        this.driver=driver;
+    }
 
     public String getSummaryMessage()
     {
         String text="Dummy";
 
-        PerformAction.fluentWait.withTimeout(Duration.ofSeconds(15));
-        PerformAction.fluentWait.pollingEvery(Duration.ofSeconds(3));
-        PerformAction.fluentWait.ignoring(ElementNotVisibleException.class);
-        PerformAction.fluentWait.ignoring(NotFoundException.class);
+        FluentWait<WebDriver>fluentWait=new FluentWait<>(driver).withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofSeconds(3))
+        .ignoring(ElementNotVisibleException.class).ignoring(NotFoundException.class);
         try {
-            WebElement element = PerformAction.fluentWait.until(ExpectedConditions.visibilityOfElementLocated(SummaryMessage));
+            WebElement element =fluentWait.until(ExpectedConditions.visibilityOfElementLocated(SummaryMessage));
             text=element.getText();
         }catch (Exception e)
         {
@@ -66,43 +71,43 @@ public class PaymentDetailPage extends TestBase
     public boolean selectOptionTarjeta() {
 
 
-        return PerformAction.click(driver.findElement(CreditCard));
+        return PerformAction.click(driver.findElement(CreditCard),driver);
     }
 
 
     public boolean enterCardHolderName(String name)
     {
-        return PerformAction.setText(driver.findElement(CardHolderName),name);
+        return PerformAction.setText(driver.findElement(CardHolderName),name,driver);
     }
 
     public boolean enterCardNumber(String number)
     {
-        return PerformAction.setText(driver.findElement(CardNumber),number);
+        return PerformAction.setText(driver.findElement(CardNumber),number,driver);
     }
 
     public boolean enterExpiryMonth(String month)
     {
-        return PerformAction.setText(driver.findElement(ExpiryMonth),month);
+        return PerformAction.setText(driver.findElement(ExpiryMonth),month,driver);
     }
 
     public boolean enterExpiryYear(String year)
     {
-        return PerformAction.setText(driver.findElement(ExpiryYear),year);
+        return PerformAction.setText(driver.findElement(ExpiryYear),year,driver);
     }
 
     public boolean enterCCVNumber(String ccv)
     {
-        return PerformAction.setText(driver.findElement(CcvNumber),ccv);
+        return PerformAction.setText(driver.findElement(CcvNumber),ccv,driver);
     }
 
     public boolean clickSubmit()
     {
-        return PerformAction.click(driver.findElement(PagarConTarjeta));
+        return PerformAction.click(driver.findElement(PagarConTarjeta),driver);
     }
 
     public boolean enterEmailId(String email)
     {
-        return PerformAction.setText(driver.findElement(EmailId),email);
+        return PerformAction.setText(driver.findElement(EmailId),email,driver);
     }
 
     public void fillCardDetails(String name,String numb, String mon,String year,String ccv,String email)
@@ -122,33 +127,37 @@ public class PaymentDetailPage extends TestBase
     {
         boolean status=false;
 
-        PerformAction.setText(driver.findElement(PopUpEmailId),emailId);
+        PerformAction.setText(driver.findElement(PopUpEmailId),emailId,driver);
 
-        PerformAction.setText(driver.findElement(PopUpPassword),pswrd);
+        PerformAction.setText(driver.findElement(PopUpPassword),pswrd,driver);
 
 
         //---switching to iframe-----//
-        int size=driver.findElements(By.tagName("iframe")).size();
+        try{
+            int size=driver.findElements(By.tagName("iframe")).size();
+
+            log.info("Number of iframes are "+size);
+
         for(int i=0;i<size;i++)
         {
             driver.switchTo().frame(i);
             if(driver.findElements(PopUpIamNotRobotCheckBox).size()!=0)
             {
-                PerformAction.click(driver.findElement(PopUpIamNotRobotCheckBox));
+                PerformAction.click(driver.findElement(PopUpIamNotRobotCheckBox),driver);
                 driver.switchTo().defaultContent();
                 break;
             }
         }
-        PerformAction.click(driver.findElement(PopUpSubmitButton));
+            PerformAction.click(driver.findElement(PopUpSubmitButton),driver);
 
-        try
-        {
-            PerformAction.fluentWait.withTimeout(Duration.ofSeconds(20));
-            PerformAction.fluentWait.pollingEvery(Duration.ofSeconds(2));
-            PerformAction.fluentWait.ignoring(StaleElementReferenceException.class);
-            PerformAction.fluentWait.ignoring(TimeoutException.class);
+            log.error("Waiting for invisibility of the pop up and naviagtion to payment done page");
 
-            PerformAction.fluentWait.until(ExpectedConditions.invisibilityOfElementLocated(FacebookButtonOnPopUp));
+             FluentWait<WebDriver> fluentWait=new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20))
+            .pollingEvery(Duration.ofSeconds(2))
+            .ignoring(StaleElementReferenceException.class)
+            .ignoring(TimeoutException.class);
+
+            fluentWait.until(ExpectedConditions.invisibilityOfElementLocated(FacebookButtonOnPopUp));
             status=true;
         }catch (Exception e)
         {

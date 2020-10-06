@@ -8,7 +8,9 @@
     <classes>
       <class name="org.UnDosTres.test.PaymentDetailPageTest">
         <methods>
+          <include name="beforeStartOfClass"/>
           <include name="setUp"/>
+          <include name="validatePaymentHasBeenCompletedThroughCard"/>
           <include name="validatePaymentHasBeenCompletedThroughCard"/>
           <include name="validatePaymentHasBeenCompletedThroughCard"/>
           <include name="tearDown"/>

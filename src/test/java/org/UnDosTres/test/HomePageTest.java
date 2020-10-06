@@ -2,19 +2,22 @@ package org.UnDosTres.test;
 
 import org.UnDosTres.pages.HomePage;
 import org.UnDosTres.testBase.TestBase;
-import org.UnDosTres.testData.DataFactory;
-import org.UnDosTres.util.PerformAction;
+import org.UnDosTres.dataFactory.DataFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 import java.io.File;
-import java.io.FileReader;
 
 public class HomePageTest extends TestBase
 {
+    public WebDriver driver;
     private String browser,operator,mobileNumber,rechargeType,amount;
     private HomePage homePage;
+    private Logger log= LogManager.getLogger(HomePageTest.class.getName());
 
 
     @Factory(dataProvider = "getHomePageData",dataProviderClass = DataFactory.class)
@@ -52,14 +55,21 @@ public class HomePageTest extends TestBase
         }
     }
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp(ITestContext context)
     {
-         initialize_Browser_OpenUrl(browser,propertyFile.getProperty("url"));
-         homePage=new HomePage();
+         driver=initialize_Browser_OpenUrl(browser);
+         log.info("Browser "+browser+" moving to open url");
+
+         driver.get(propertyFile.getProperty("url"));
+         log.info("Url-->>"+propertyFile.getProperty("url")+" has been opened successfully");
+
+         homePage=new HomePage(driver);
+         log.info("Initiated HomePage Class");
+
          context.setAttribute("browser",browser);
     }
-    @AfterMethod
+    @AfterClass
     public void tearDown()
     {
         driver.quit();

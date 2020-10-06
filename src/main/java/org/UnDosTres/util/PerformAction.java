@@ -20,25 +20,16 @@ import java.util.List;
 
 public class PerformAction extends TestBase
 {
-    public static WebDriverWait wait;
-    public static FluentWait<WebDriver> fluentWait;
-    public static Actions actions;
-    private static final Logger log= LogManager.getLogger("UnDosTres");
 
-    public static void initializeVariables()
-    {
-        wait=new WebDriverWait(driver,15);
-        fluentWait=new FluentWait(driver);
-        actions=new Actions(driver);
-    }
+    private static final Logger log= LogManager.getLogger(PerformAction.class.getName());
 
-    public static void moveToElementAndClick(WebElement element)
+
+    public static void moveToElementAndClick(WebElement element,WebDriver driver)
     {
-        initializeVariables();
 
         try{
 
-            actions.moveToElement(element).click().build().perform();
+           new Actions(driver).moveToElement(element).click().build().perform();
             log.info("Successfully Move to the element and clicked-->"+element.toString());
         }catch (Exception e)
         {
@@ -46,25 +37,22 @@ public class PerformAction extends TestBase
         }
     }
 
-    public static boolean setText(WebElement element,String data)
+    public static boolean setText(WebElement element,String data, WebDriver driver)
     {
-        initializeVariables();
-
-        isPageReady();
-
+        isPageReady(driver);
 
         boolean status=false;
 
         try
         {
             log.info("Waiting until field is clickable->"+element.toString());
-            wait.until(ExpectedConditions.elementToBeClickable(element));
+            new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(element));
         }catch (Exception e)
         {
             log.error("Element->>"+element.toString()+" is not clickable",e.fillInStackTrace());
         }
 
-        actions.moveToElement(element).build().perform();
+        new Actions(driver).moveToElement(element).build().perform();
         log.info("Moving to the element-->"+element.toString());
         element.clear();
         log.info("Clear data from the field if present-->"+element.toString());
@@ -105,20 +93,18 @@ public class PerformAction extends TestBase
         return status;
     }
 
-    public static boolean click(WebElement element)
+    public static boolean click(WebElement element,WebDriver driver)
     {
-        initializeVariables();
-
-        isPageReady();
+        isPageReady(driver);
 
         boolean status=false;
 
         try
         {
             log.info("Waiting for the element to be clickable-->>"+element.toString());
-            wait.until(ExpectedConditions.elementToBeClickable(element));
+            new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(element));
 
-            actions.moveToElement(element).click().build().perform();
+            new Actions(driver).moveToElement(element).click().build().perform();
             log.info("Successfully moved to the element and clicked-->>"+element.toString());
 
             status=true;
@@ -130,19 +116,18 @@ public class PerformAction extends TestBase
         return status;
     }
 
-    public static boolean hover(WebElement element)
+    public static boolean hover(WebElement element,WebDriver driver)
     {
-        initializeVariables();
 
-        isPageReady();
+        isPageReady(driver);
 
         boolean status=false;
         try
         {
             log.info("Waiting for the visibility of the element in DOM-->>"+element.toString());
-            wait.until(ExpectedConditions.visibilityOf(element));
+            new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(element));
 
-            actions.moveToElement(element).build().perform();
+            new Actions(driver).moveToElement(element).build().perform();
             log.info("Successfully move to the element ");
             status=true;
         }catch (Exception e)
@@ -153,10 +138,9 @@ public class PerformAction extends TestBase
         return status;
     }
 
-    public static String getText(WebElement element)
+    public static String getText(WebElement element,WebDriver driver)
     {
-        initializeVariables();
-        isPageReady();
+        isPageReady(driver);
         String text="Dummy";
         try
         {
@@ -191,17 +175,16 @@ public class PerformAction extends TestBase
         return text;
     }
 
-    public static boolean setAutoSuggestiveDropDown(By by, String optionToSelect)
+    public static boolean setAutoSuggestiveDropDown(By by, String optionToSelect,WebDriver driver)
     {
-        initializeVariables();
-        isPageReady();
+        isPageReady(driver);
         boolean status=false;
 
         List<WebElement> list=null;
 
         try
         {
-            list=wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+            list=new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
         }catch (Exception e)
         {
             System.out.println("Unable to fetch List");
@@ -226,15 +209,12 @@ public class PerformAction extends TestBase
         return status;
     }
 
-    public static void isPageReady()
+    public static void isPageReady(WebDriver driver)
     {
-        initializeVariables();
-        fluentWait.withTimeout(Duration.ofSeconds(30));
-        fluentWait.pollingEvery(Duration.ofSeconds(2));
-        fluentWait.ignoring(Exception.class);
+        FluentWait<WebDriver> fluentWait=new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(2)).ignoring(Exception.class);
         try{
             log.info("Getting the readiness of the page");
-            fluentWait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+            fluentWait.until(driver1 -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
             log.info("Page is ready");
         }catch (Exception e)
         {

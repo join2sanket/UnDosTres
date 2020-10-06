@@ -6,12 +6,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.sl.usermodel.SlideShowFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
 
-public class HomePage extends TestBase
+public class HomePage
 {
+    public WebDriver driver;
+
     private By Operator= By.xpath("//div[@to-do=\"mobile\"]/div/div[@class=\"form\"] //input[@name=\"operator\"]");
 
     private By OperatorList=By.xpath("//input[@id=\"suggested\"]/../div/ul/li");
@@ -26,22 +31,30 @@ public class HomePage extends TestBase
 
     private static final Logger log= LogManager.getLogger("UnDosTres");
 
+
+    public HomePage(WebDriver driver)
+    {
+        this.driver=driver;
+    }
+
+
+
     public boolean setOperator(String operator)
     {
 
         boolean status=false;
         try {
-            PerformAction.click(driver.findElement(Operator));
+            PerformAction.click(driver.findElement(Operator),driver);
             log.info("Click on the operator field to open the operator list");
 
-            List<WebElement> list = PerformAction.wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(OperatorList));
+            List<WebElement> list = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(OperatorList));
             log.info("Oprator list has been found, number of operator in list are->"+list.size());
 
             for (WebElement e : list)
             {
-                if (PerformAction.getText(e).equalsIgnoreCase(operator))
+                if (PerformAction.getText(e,driver).equalsIgnoreCase(operator))
                 {
-                    PerformAction.click(e);
+                    PerformAction.click(e,driver);
                     log.info("Operator selected as "+operator+" successfully");
                     status = true;
                     break;
@@ -60,7 +73,7 @@ public class HomePage extends TestBase
 
         try
         {
-            PerformAction.setText(driver.findElement(Mobile),mobileNumber);
+            PerformAction.setText(driver.findElement(Mobile),mobileNumber,driver);
             log.info("Mobile Number->"+mobileNumber+" has been entered successfully");
             status=true;
         }catch (Exception e)
@@ -76,18 +89,18 @@ public class HomePage extends TestBase
         boolean status=false;
         int i=0,k=0;
 
-            PerformAction.click(driver.findElement(Amount));
+            PerformAction.click(driver.findElement(Amount),driver);
             try {
                 log.info("Getting recharge type web element " + RechargeType);
                 WebElement rechargeType = driver.findElement(By.xpath("//div[@class=\"category-tab \"]/div[text()=\"" + RechargeType + "\"]"));
                 log.info("Recharge type webelement has been found successfully");
 
-                PerformAction.click(rechargeType);
+                PerformAction.click(rechargeType,driver);
                 log.info("Click over Recharge type->"+RechargeType);
 
                 List<WebElement> list = driver.findElements(By.xpath("//div[@class=\"category-tab \"]/div"));
 
-                while (!PerformAction.getText(list.get(i)).equalsIgnoreCase(RechargeType) && i < 3)
+                while (!PerformAction.getText(list.get(i),driver).equalsIgnoreCase(RechargeType) && i < 3)
                 {
                     i++;
                 }
@@ -111,14 +124,14 @@ public class HomePage extends TestBase
     public void clickProceedToPayment()
     {
             log.info("Going to click on submit button to move towards payment page");
-            PerformAction.click(driver.findElement(PerformPaymentButton));
+            PerformAction.click(driver.findElement(PerformPaymentButton),driver);
             log.info("Clicked on perform payment button");
     }
 
     public String getTextRecargaCelular()
     {
         log.info("Getting text Recarga Celular");
-        return PerformAction.getText(driver.findElement(TextRecargaCelular));
+        return PerformAction.getText(driver.findElement(TextRecargaCelular),driver);
     }
 
     public PaymentDetailPage enterRechargeDetailsAndClickSubmit(String operator, String mobileNo, String rechType, String amount)
@@ -127,6 +140,6 @@ public class HomePage extends TestBase
         setMobileNumber(mobileNo);
         setRechargeTypeAndAmount(rechType,amount);
         clickProceedToPayment();
-        return new PaymentDetailPage();
+        return new PaymentDetailPage(driver);
     }
 }
